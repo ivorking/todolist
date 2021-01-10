@@ -8,7 +8,8 @@ export class AddItem extends Component {
     super(props)
 
     this.state = {
-      newItem: ""
+      newItem: "",
+      label: "Type your To Do here"
     }
 
     this.addItem = this.addItem.bind(this);
@@ -18,16 +19,24 @@ export class AddItem extends Component {
 
   addItem(e) {
     this.props.updateItemList(this.newItem)
+    this.setState({
+      newItem: "",
+      label: "Add another To Do"
+    })
   }
 
   handleChange(e) {
     this.newItem = e.target.value
+    this.setState({
+      newItem: this.newItem
+    })
   }
 
   render() {
+
     return (
       <div>
-        <TextField type="text" label='Type your item here' variant="outlined" onChange={this.handleChange} style={{margin: 20}}></TextField>
+        <TextField type="text" label={this.state.label} variant="outlined" value={this.state.newItem} onChange={this.handleChange} style={{margin: 20}}></TextField>
         <Button style={{ display: 'block', marginLeft: 20 }} variant="contained" color="primary" onClick={this.addItem}>
           Add item
         </Button>
