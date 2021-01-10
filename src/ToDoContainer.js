@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AddItem from './components/AddItem.js'
+import DisplayList from './components/DisplayList.js'
 
 class ToDoContainer extends React.Component {
 
@@ -20,7 +21,6 @@ class ToDoContainer extends React.Component {
     this.setState({
       listOfItems: newArray
     })
-    console.log(this.state.listOfItems)
   }
 
   render() {
@@ -28,6 +28,7 @@ class ToDoContainer extends React.Component {
     return (
       <div>
         <AddItem updateItemList={this.updateItemList}/>
+        <DisplayList listOfItems={this.state.listOfItems} />
       </div>
     )
   }
