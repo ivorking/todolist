@@ -17,12 +17,11 @@ export class AddItem extends Component {
   }
 
   addItem(e) {
-    console.log('here we go:', this.newItem)
+    this.props.updateItemList(this.newItem)
   }
 
   handleChange(e) {
     this.newItem = e.target.value
-    console.log(this.newItem)
   }
 
   render() {

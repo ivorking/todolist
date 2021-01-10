@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import AddItem from './components/AddItem.js'
 
+let newArray = []
+
 class ToDoContainer extends React.Component {
 
   constructor(props) {
@@ -10,14 +12,22 @@ class ToDoContainer extends React.Component {
       listOfItems: []
     }
 
+    this.updateItemList = this.updateItemList.bind(this)
+
+  } 
+
+  updateItemList(newItem) {
+    newArray = this.state.listOfItems.push(newItem)
+    this.setState({
+      listOfItems: newArray
+    })
+    console.log(this.state.listOfItems)
   }
-
-
 
   render() {
     return (
       <div>
-        <AddItem listOfItems={this.listOfItems}/>
+        <AddItem updateItemList={this.updateItemList}/>
       </div>
     )
   }
