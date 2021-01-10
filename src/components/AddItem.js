@@ -17,12 +17,12 @@ export class AddItem extends Component {
   }
 
   addItem(e) {
-    console.log('here we go:', newItem)
+    console.log('here we go:', this.newItem)
   }
 
   handleChange(e) {
-    newItem = e.target.value
-    console.log(newItem)
+    this.newItem = e.target.value
+    console.log(this.newItem)
   }
 
   render() {
