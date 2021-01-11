@@ -12,6 +12,7 @@ class ToDoContainer extends React.Component {
     }
 
     this.updateItemList = this.updateItemList.bind(this)
+    this.deleteItem = this.deleteItem.bind(this)
 
   } 
 
@@ -23,12 +24,20 @@ class ToDoContainer extends React.Component {
     })
   }
 
+  deleteItem(index) {
+    let tempArray = this.state.listOfItems;
+    tempArray.splice(index, 1)
+    this.setState({
+      listOfItems: tempArray
+    })
+  }
+
   render() {
 
     return (
       <div>
         <AddItem updateItemList={this.updateItemList}/>
-        <DisplayList listOfItems={this.state.listOfItems} />
+        <DisplayList listOfItems={this.state.listOfItems} deleteItem={this.deleteItem}/>
       </div>
     )
   }
