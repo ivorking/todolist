@@ -15,7 +15,6 @@ class ToDoContainer extends React.Component {
     this.deleteItem = this.deleteItem.bind(this)
 
   } 
-
   updateItemList(newItem) {
     let newArray = this.state.listOfItems
     newArray.push(newItem)

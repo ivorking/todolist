@@ -10,11 +10,13 @@ export class DisplayList extends React.Component {
   }
 
   render() {
+
     if (this.props.listOfItems) {
+      console.log('entering')
       return (
         <div>
           {this.props.listOfItems.map((item, index) => (
-            <ListItem key={index}> {index} {item}
+            <ListItem key={index}> 
               <Button variant="contained" color="secondary" onClick={this.props.deleteItem(index)}>Delete</Button>
             </ListItem>
           ))}
