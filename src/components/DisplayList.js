@@ -17,6 +17,8 @@ export class DisplayList extends React.Component {
         <div>
           {this.props.listOfItems.map((item, index) => (
             <ListItem key={index}> 
+              {index}
+              {item}
               <Button variant="contained" color="secondary" onClick={this.props.deleteItem(index)}>Delete</Button>
             </ListItem>
           ))}
