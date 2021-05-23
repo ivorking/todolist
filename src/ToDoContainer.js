@@ -17,10 +17,13 @@ class ToDoContainer extends React.Component {
   } 
   updateItemList(newItem) {
     let newArray = this.state.listOfItems
+    console.log('newArray is', newArray)
     newArray.push(newItem)
+    console.log('newArray is', newArray)
     this.setState({
       listOfItems: newArray
     })
+    console.log(this.state.listOfItems)
   }
 
   deleteItem(index) {
