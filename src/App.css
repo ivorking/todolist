@@ -17,6 +17,7 @@ table {
   width: 50%;
   table-layout: fixed;
   margin: auto;
+  padding-left: 25px;
 }
 
 th, td {
