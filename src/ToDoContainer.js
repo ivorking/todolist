@@ -40,9 +40,11 @@ class ToDoContainer extends React.Component {
     return (
       <div>
         <AddItem updateItemList={this.updateItemList}/>
+        <h2>Your To Do's</h2>
         <DisplayList listOfItems={this.state.listOfItems} deleteItem={this.deleteItem}/>
       </div>
     )
+
   }
 
 }

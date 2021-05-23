@@ -14,18 +14,15 @@ export class DisplayList extends React.Component {
     if (this.props.listOfItems) {
       return (
         <table>
-<tbody>
-
             {this.props.listOfItems.map((item, index) => (
               <ListItem key={index}> 
                 <tr>
-                    <td style={{width: '30%'}}>{index + 1}</td>
-                    <td style={{width: '30%'}}>{item}</td>
-                    <td style={{width: '30%'}}><Button variant="contained" color="secondary" onClick={() => {this.props.deleteItem(index)}}>Delete</Button></td>
+                  <td style= {{width:'30px'}}>{index + 1}</td>
+                  <td style= {{width:'200px'}}>{item}</td>
+                  <td style= {{width:'30px'}}><Button variant="contained" color="secondary" onClick={() => {this.props.deleteItem(index)}}>Delete</Button></td>
                 </tr>            
               </ListItem>
             ))}
-</tbody>
         </table>
       )
     } else {
