@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import AddItem from './components/AddItem.js'
 import DisplayList from './components/DisplayList.js'
+import { makeStyles } from '@material-ui/core/styles';
+
 
 class ToDoContainer extends React.Component {
 
@@ -14,12 +16,11 @@ class ToDoContainer extends React.Component {
     this.updateItemList = this.updateItemList.bind(this)
     this.deleteItem = this.deleteItem.bind(this)
 
-  } 
+  }
+  
   updateItemList(newItem) {
     let newArray = this.state.listOfItems
-    console.log('newArray is', newArray)
     newArray.push(newItem)
-    console.log('newArray is', newArray)
     this.setState({
       listOfItems: newArray
     })

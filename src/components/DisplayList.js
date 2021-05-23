@@ -1,31 +1,31 @@
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 import ListItem from '@material-ui/core/ListItem';
-import Button from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button';
 
 export class DisplayList extends React.Component {
+
   constructor(props) {
     super(props)
   }
 
   render() {
-    const divStyle = {
-      columns: 2 auto;
-    };
 
     if (this.props.listOfItems) {
       return (
-        <table style={divStyle}>
-          {this.props.listOfItems.map((item, index) => (
+        <table>
+<tbody>
+
+            {this.props.listOfItems.map((item, index) => (
               <ListItem key={index}> 
                 <tr>
-                  <td>{index + 1}</td>
-                  <td>{item}</td>
-                  <td><Button variant="contained" color="secondary" onClick={() => {this.props.deleteItem(index)}}>Delete</Button></td>
-                </tr>
-
-            </ListItem>
-))}
+                    <td style={{width: '30%'}}>{index + 1}</td>
+                    <td style={{width: '30%'}}>{item}</td>
+                    <td style={{width: '30%'}}><Button variant="contained" color="secondary" onClick={() => {this.props.deleteItem(index)}}>Delete</Button></td>
+                </tr>            
+              </ListItem>
+            ))}
+</tbody>
         </table>
       )
     } else {

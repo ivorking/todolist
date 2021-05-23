@@ -13,6 +13,19 @@
   }
 }
 
+table {
+  border-collapse: collapse;
+  border: 3px solid purple;
+  width: 100%;
+  table-layout: fixed;
+}
+
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
