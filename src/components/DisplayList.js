@@ -9,17 +9,24 @@ export class DisplayList extends React.Component {
   }
 
   render() {
+    const divStyle = {
+      columns: 2 auto;
+    };
+
     if (this.props.listOfItems) {
       return (
-        <div>
+        <table style={divStyle}>
           {this.props.listOfItems.map((item, index) => (
-            <ListItem key={index}> 
-              {index}
-              {item}
-            <Button variant="contained" color="secondary" onClick={() => {this.props.deleteItem(index)}}>Delete</Button>
+              <ListItem key={index}> 
+                <tr>
+                  <td>{index + 1}</td>
+                  <td>{item}</td>
+                  <td><Button variant="contained" color="secondary" onClick={() => {this.props.deleteItem(index)}}>Delete</Button></td>
+                </tr>
+
             </ListItem>
-          ))}
-        </div>
+))}
+        </table>
       )
     } else {
       return
