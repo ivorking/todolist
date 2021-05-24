@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AddItem from './components/AddItem.js'
 import DisplayList from './components/DisplayList.js'
+import Typography from '@material-ui/core/Typography';
 import '@fontsource/roboto';
 
 

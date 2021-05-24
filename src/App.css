@@ -28,6 +28,7 @@ th, td {
 h2 {
   margin-top: 5em;
   text-align: center;
+  font-weight: 200;
 }
 
 .App-header {

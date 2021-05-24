@@ -14,6 +14,7 @@ export class AddItem extends Component {
 
     this.addItem = this.addItem.bind(this);
     this.handleChange = this.handleChange.bind(this)
+    this.keyPress = this.keyPress.bind(this)
 
   }
 
@@ -32,11 +33,29 @@ export class AddItem extends Component {
     })
   }
 
+  keyPress(e) {
+    if(e.keyCode == 13){
+      this.props.updateItemList(this.newItem)
+      this.setState({
+        newItem: "",
+        label: "Add another To Do"
+      })
+    }
+  }
+
   render() {
 
     return (
       <div>
-        <TextField type="text" label={this.state.label} variant="outlined" value={this.state.newItem} onChange={this.handleChange} style={{margin: 20}}></TextField>
+        <TextField 
+          type="text" 
+          label={this.state.label} 
+          variant="outlined" 
+          value={this.state.newItem} 
+          onChange={this.handleChange} 
+          onKeyDown={this.keyPress}
+          style={{margin: 20}}>
+        </TextField>
         <Button style={{ display: 'block', marginLeft: 20 }} variant="contained" color="primary" onClick={this.addItem}>
           Add item
         </Button>
