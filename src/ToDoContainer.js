@@ -53,6 +53,7 @@ class ToDoContainer extends React.Component {
         <AddItem updateItemList={this.updateItemList}/>
         <h2>Your To Do's</h2>
         <DisplayList listOfItems={this.state.listOfItems} editVal={this.state.editVal} deleteItem={this.deleteItem} editItem={this.editItem}/>
+        {(this.state.editVal > 0) && <DisplayEdit editVal = {this.state.editVal} listOfItems={this.state.listOfItems} />}
       </div>
     )
 
