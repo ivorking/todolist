@@ -16,8 +16,7 @@ class DisplayEdit extends Component {
   }
 
   componentWillMount() {
-    this.state.newEditingValue = this.props.listOfItems[this.props.editVal - 1]
-    console.log('mounting', this.state.newEditingValue)
+    this.state.newEditingValue = this.props.listOfItems[this.props.editVal]
   }
 
   handleChangeDisp(e) {
@@ -38,10 +37,10 @@ class DisplayEdit extends Component {
           variant="outlined" 
           value={this.state.newEditingValue} 
           onChange={this.handleChangeDisp} 
-          // onKeyDown={this.keyPress}
+          style={{margin: 20}}
         />
 
-        <Button style={{ display: 'block', marginLeft: 20 }} variant="contained" color="primary" onClick={this.addItem}>
+        <Button style={{ display: 'block', marginLeft: 20 }} variant="contained" color="primary" onClick={() => {this.props.updateEditedItem(this.state.newEditingValue)}}>
           Done
         </Button>
 

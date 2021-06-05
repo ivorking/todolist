@@ -4,6 +4,7 @@ import DisplayList from './components/DisplayList.js'
 import DisplayEdit from './components/DisplayEdit.js'
 import Typography from '@material-ui/core/Typography';
 import '@fontsource/roboto';
+import { ThemeProvider } from '@material-ui/styles';
 
 
 class ToDoContainer extends React.Component {
@@ -19,7 +20,17 @@ class ToDoContainer extends React.Component {
     this.updateItemList = this.updateItemList.bind(this)
     this.deleteItem = this.deleteItem.bind(this)
     this.editItem = this.editItem.bind(this)
+    this.updateEditedItem = this.updateEditedItem.bind(this)
 
+  }
+
+  updateEditedItem(newValue) {
+    let tempArray = this.state.listOfItems;
+    tempArray[this.state.editVal] = newValue
+    this.setState({
+      listOfItems: tempArray,
+      editVal: null
+    })
   }
 
   updateItemList(newItem) {
@@ -39,8 +50,7 @@ class ToDoContainer extends React.Component {
   }
 
   editItem(index) {
-    console.log('edit clicked', index);
-    let tempVar = index + 1;
+    let tempVar = index;
     this.setState({
       editVal: tempVar
     })
@@ -52,8 +62,8 @@ class ToDoContainer extends React.Component {
       <div>
         <AddItem updateItemList={this.updateItemList}/>
         <h2>Your To Do's</h2>
-        <DisplayList listOfItems={this.state.listOfItems} editVal={this.state.editVal} deleteItem={this.deleteItem} editItem={this.editItem}/>
-        {(this.state.editVal > 0) && <DisplayEdit editVal = {this.state.editVal} listOfItems={this.state.listOfItems} />}
+        <DisplayList listOfItems={this.state.listOfItems} deleteItem={this.deleteItem} editItem={this.editItem} editVal={this.state.editVal}/>
+        {(this.state.editVal) && <DisplayEdit editVal = {this.state.editVal} listOfItems={this.state.listOfItems} updateEditedItem={this.updateEditedItem}/>}
       </div>
     )
 

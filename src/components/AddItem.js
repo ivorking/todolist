@@ -54,8 +54,8 @@ export class AddItem extends Component {
           value={this.state.newItem} 
           onChange={this.handleChange} 
           onKeyDown={this.keyPress}
-          style={{margin: 20}}>
-        </TextField>
+          style={{margin: 20}}
+        />
         <Button style={{ display: 'block', marginLeft: 20 }} variant="contained" color="primary" onClick={this.addItem}>
           Add item
         </Button>
