@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import '@fontsource/roboto';
+import ArrowUpwardRoundedIcon from '@material-ui/icons/ArrowUpwardRounded';
+import ArrowDownwardRoundedIcon from '@material-ui/icons/ArrowDownwardRounded';
 
 export class DisplayList extends Component {
 
@@ -49,6 +51,18 @@ export class DisplayList extends Component {
                     <td style = {{width:'30px'}}><Button variant="contained" color="secondary" onClick={() => {this.props.deleteItem(index); }}>Remove</Button></td>
                     <td style = {{width:'20px'}}></td>
                     <td style = {{width:'30px', marginLeft: '20px'}}><Button variant="contained" color="secondary" onClick={() => {this.props.editItem(index)}}>Edit</Button></td>
+                    <td style = {{width:'20px'}}></td>
+                    <td style = {{width:'30px', marginLeft: '20px'}}>
+                      <Button variant="contained" color="secondary" color="secondary" onClick={() => {this.props.moveItemUp(index)}}>
+                        <ArrowUpwardRoundedIcon />
+                      </Button>
+                    </td>
+                    <td style = {{width:'20px'}}></td>
+                    <td style = {{width:'30px', marginLeft: '20px'}}>
+                      <Button variant="contained" color="secondary" color="secondary" onClick={() => {this.props.moveItemDown(index)}}>
+                        <ArrowDownwardRoundedIcon />
+                      </Button>
+                    </td>                  
                   </tr>            
                 </ListItem>
               ))}
