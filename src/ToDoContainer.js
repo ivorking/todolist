@@ -55,23 +55,29 @@ class ToDoContainer extends React.Component {
     let tempVar = index;
     this.setState({
       editVal: tempVar
+    }, () => {
+      console.log('this.state.editVal:', this.state.editVal)    
     })
   }
 
   moveItemUp(index) {
-    let tempArray = this.state.listOfItems;
-    [tempArray[index], tempArray[index - 1]] = [tempArray[index - 1], tempArray[index]]
-    this.setState({
-      listOfItems: tempArray
-    })
+    if (index != 0) {
+      let tempArray = this.state.listOfItems;
+      [tempArray[index], tempArray[index - 1]] = [tempArray[index - 1], tempArray[index]]
+      this.setState({
+        listOfItems: tempArray
+      })
+    }
   }
 
   moveItemDown(index) {
     let tempArray = this.state.listOfItems;
-    [tempArray[index], tempArray[index + 1]] = [tempArray[index + 1], tempArray[index]]
-    this.setState({
-      listOfItems: tempArray
-    })
+    if (tempArray.length != (index + 1)) {
+      [tempArray[index], tempArray[index + 1]] = [tempArray[index + 1], tempArray[index]]
+      this.setState({
+        listOfItems: tempArray
+      })
+    }
   }
 
   render() {
@@ -81,7 +87,7 @@ class ToDoContainer extends React.Component {
         <AddItem updateItemList={this.updateItemList}/>
         <h2>Your To Do's</h2>
         <DisplayList listOfItems={this.state.listOfItems} deleteItem={this.deleteItem} editItem={this.editItem} editVal={this.state.editVal} moveItemUp={this.moveItemUp} moveItemDown={this.moveItemDown}/>
-        {(this.state.editVal) && 
+        {this.state.editVal !== null &&
           <DisplayEdit editVal = {this.state.editVal} listOfItems={this.state.listOfItems} updateEditedItem={this.updateEditedItem}/>
         }
       </div>

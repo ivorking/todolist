@@ -12,6 +12,7 @@ class DisplayEdit extends Component {
     }
 
     this.handleChangeDisp = this.handleChangeDisp.bind(this);
+    this.keyPress = this.keyPress.bind(this)
 
   }
 
@@ -20,14 +21,23 @@ class DisplayEdit extends Component {
   }
 
   handleChangeDisp(e) {
-    this.newEditingValue = e.target.value
+    let fieldValue = e.target.value
     this.setState({
-      newEditingValue: this.newEditingValue
+      newEditingValue: fieldValue
     })
+  }
+
+  keyPress(e) {
+    console.log(e.keyCode)
+    if (e.keyCode == 13) {
+      this.props.updateEditedItem(this.state.newEditingValue)
+    }
   }
 
   render() {
 
+    console.log('in DisplayEdit')
+    
     return (
       <div>
 
@@ -36,7 +46,8 @@ class DisplayEdit extends Component {
           label="Editing your To Do" 
           variant="outlined" 
           value={this.state.newEditingValue} 
-          onChange={this.handleChangeDisp} 
+          onChange={this.handleChangeDisp}
+          onKeyDown={this.keyPress} 
           style={{margin: 20}}
         />
 

@@ -18,7 +18,7 @@ export class DisplayList extends Component {
 
     if (this.props.listOfItems) {
 
-      if (this.props.editVal) {
+      if (this.props.editVal !== null) {
 
         return (
           <div>
@@ -31,6 +31,18 @@ export class DisplayList extends Component {
                     <td style = {{width:'30px'}}><Button variant="contained" color="secondary">Remove</Button></td>
                     <td style = {{width:'20px'}}></td>
                     <td style = {{width:'30px', marginLeft: '20px'}}><Button variant="contained" color="secondary"> Edit </Button></td>
+                    <td style = {{width:'30px'}}></td>
+                    <td style = {{width:'30px', marginLeft: '20px'}}>
+                      <Button variant="contained" color="secondary" color="secondary" onClick={() => {this.props.moveItemUp(index)}}>
+                        <ArrowUpwardRoundedIcon />
+                      </Button>
+                    </td>
+                    <td style = {{width:'20px'}}></td>
+                    <td style = {{width:'30px', marginLeft: '20px'}}>
+                      <Button variant="contained" color="secondary" color="secondary" onClick={() => {this.props.moveItemDown(index)}}>
+                        <ArrowDownwardRoundedIcon />
+                      </Button>
+                    </td>     
                   </tr>            
                 </ListItem>
               ))}
