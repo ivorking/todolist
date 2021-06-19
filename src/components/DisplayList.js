@@ -26,19 +26,19 @@ export class DisplayList extends Component {
               {this.props.listOfItems.map((item, index) => (
                 <ListItem key ={index}> 
                   <tr>
-                    <td style = {{width:'30px'}}>{index + 1}</td>
-                    <td style = {{width:'200px'}}>{item}</td>
-                    <td style = {{width:'30px'}}><Button variant="contained" color="secondary">Remove</Button></td>
-                    <td style = {{width:'20px'}}></td>
-                    <td style = {{width:'30px', marginLeft: '20px'}}><Button variant="contained" color="secondary"> Edit </Button></td>
-                    <td style = {{width:'30px'}}></td>
-                    <td style = {{width:'30px', marginLeft: '20px'}}>
+                    <td>{index + 1}</td>
+                    <td>{item}</td>
+                    <td><Button variant="contained" color="secondary">Remove</Button></td>
+                    <td/>
+                    <td><Button variant="contained" color="secondary"> Edit </Button></td>
+                    <td></td>
+                    <td>
                       <Button variant="contained" color="secondary" color="secondary" onClick={() => {this.props.moveItemUp(index)}}>
                         <ArrowUpwardRoundedIcon />
                       </Button>
                     </td>
-                    <td style = {{width:'20px'}}></td>
-                    <td style = {{width:'30px', marginLeft: '20px'}}>
+                    <td/>
+                    <td>
                       <Button variant="contained" color="secondary" color="secondary" onClick={() => {this.props.moveItemDown(index)}}>
                         <ArrowDownwardRoundedIcon />
                       </Button>
@@ -58,19 +58,19 @@ export class DisplayList extends Component {
               {this.props.listOfItems.map((item, index) => (
                 <ListItem key ={index}> 
                   <tr>
-                    <td style = {{width:'30px'}}>{index + 1}</td>
-                    <td style = {{width:'200px'}}>{item}</td>
-                    <td style = {{width:'30px'}}><Button variant="contained" color="secondary" onClick={() => {this.props.deleteItem(index); }}>Remove</Button></td>
-                    <td style = {{width:'20px'}}></td>
-                    <td style = {{width:'30px', marginLeft: '20px'}}><Button variant="contained" color="secondary" onClick={() => {this.props.editItem(index)}}>Edit</Button></td>
-                    <td style = {{width:'20px'}}></td>
-                    <td style = {{width:'30px', marginLeft: '20px'}}>
+                    <td>{index + 1}</td>
+                    <td>{item}</td>
+                    <td><Button variant="contained" color="secondary" onClick={() => {this.props.deleteItem(index); }}>Remove</Button></td>
+                    <td/>
+                    <td><Button variant="contained" color="secondary" onClick={() => {this.props.editItem(index)}}>Edit</Button></td>
+                    <td/>
+                    <td>
                       <Button variant="contained" color="secondary" color="secondary" onClick={() => {this.props.moveItemUp(index)}}>
                         <ArrowUpwardRoundedIcon />
                       </Button>
                     </td>
-                    <td style = {{width:'20px'}}></td>
-                    <td style = {{width:'30px', marginLeft: '20px'}}>
+                    <td/>
+                    <td>
                       <Button variant="contained" color="secondary" color="secondary" onClick={() => {this.props.moveItemDown(index)}}>
                         <ArrowDownwardRoundedIcon />
                       </Button>
