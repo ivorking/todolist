@@ -13,6 +13,13 @@
   }
 }
 
+.testStyle {
+  color: grey;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
 table {
   table-layout: fixed;
   padding-left: 25px;

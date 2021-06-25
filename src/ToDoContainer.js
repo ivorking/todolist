@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import '@fontsource/roboto';
 import './App.css';
-import { withStyles } from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import DisplayList from './components/DisplayList.js'
 import AddItem from './components/AddItem.js'
 import DisplayEdit from './components/DisplayList.js'
-import { StyledEngineProvider } from '@material-ui/core/styles';
+import { StylesProvider } from '@material-ui/core/styles';
 
 class ToDoContainer extends React.Component {
 
@@ -85,22 +84,22 @@ class ToDoContainer extends React.Component {
   render() {
 
     return (
-      <StyledEngineProvider injectFirst>
-        <div>
-          <AddItem updateItemList={this.updateItemList}/>
-          {this.state.isLoggedIn ? 
-            <Button variant="contained" sx={{ color: "red" }}>Logged In</Button>
-            :
-            <Button variant="contained" sx={{ color: "red" }}>Log In</Button>
-          }
-          <h2>Your To Do's</h2>
+      <div>
+        <StylesProvider injectFirst>
+        <AddItem updateItemList={this.updateItemList}/>
+        {this.state.isLoggedIn ? 
+          <Button variant="contained" className="testStyle">Logged In</Button>
+          :
+          <Button variant="contained" className="testStyle">Log In</Button>
+        }
+        <h2>Your To Do's</h2>
 
-          <DisplayList listOfItems={this.state.listOfItems} deleteItem={this.deleteItem} editItem={this.editItem} editVal={this.state.editVal} moveItemUp={this.moveItemUp} moveItemDown={this.moveItemDown}/>
-          {this.state.editVal !== null &&
-            <DisplayEdit editVal = {this.state.editVal} listOfItems={this.state.listOfItems} updateEditedItem={this.updateEditedItem}/>
-          }
-        </div>
-      </StyledEngineProvider>
+        <DisplayList listOfItems={this.state.listOfItems} deleteItem={this.deleteItem} editItem={this.editItem} editVal={this.state.editVal} moveItemUp={this.moveItemUp} moveItemDown={this.moveItemDown}/>
+        {this.state.editVal !== null &&
+          <DisplayEdit editVal = {this.state.editVal} listOfItems={this.state.listOfItems} updateEditedItem={this.updateEditedItem}/>
+        }
+        </StylesProvider>
+      </div>
     )
 
   }
